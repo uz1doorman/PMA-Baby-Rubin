@@ -3,3 +3,5 @@ This is my repo with notes of Principles of Mathematics Analysis, third edition.
   
 ## Current status  
 - Chapter 1 : finished!  
+- Chapter 2 : finished!  
+- Chapter 3 : finished!  
