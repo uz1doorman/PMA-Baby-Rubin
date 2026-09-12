@@ -1,0 +1,393 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{setspace}
+\theoremstyle{definition}
+\newtheorem{definition}{Def}
+\newtheorem{theorem}[definition]{Thm}
+\newtheorem{corollary}[definition]{Cor}
+\newtheorem{proposition}[definition]{Prop}
+\newtheorem{remarks}[definition]{Rmk}
+\newtheorem{notation}[definition]{Notation}
+\onehalfspacing
+
+\title{Chapter3}
+\author{Ricky Dai}
+\date{September 2026}
+
+\begin{document}
+
+\maketitle
+\section{Convergent Sequences}
+\begin{definition}
+    A sequence $(p_n)$ in a metric space $X$ is said to \textit{converge} if there is a point $p\in X$ with the following property: For every $\varepsilon>0$ there is an integer $N$ such that $n\geq N$ implies that $d(p_n,p)<\varepsilon$.\par
+    In this case, we also say that $(p_n)$ converges to $p$, or that $p$ is the limit of $(p_n)$, and we write $p_n\to p$, or
+    \[
+    \lim_{n\to\infty} p_n = p.
+    \]\par
+    If $(p_n)$ does not converge, it is said to \textit{diverge}.\par
+    The set of points $p_n\;(n=1,2,3,...)$ is the \textit{range} of $(p_n)$. The range of a sequence may be a finite set, or it may be infinite. The sequence $(p_n)$ is said to be \textit{bounded} if its range is bounded.
+\end{definition}
+\begin{theorem}
+    Let $(p_n)$ be a sequence in a metric space $X$.\par
+    (a) $(p_n)$ converges to $p\in X$ if and only if every neighborhood of $p$ contains $p_n$ for all but finitely many $n$.\par
+    (b) If $p\in X$, $p'\in X$, and if $(p_n)$ converges to $p$ and to $p'$, then $p'=p$.\par
+    (c) If $(p_n)$ converges, then $(p_n)$ is bounded.\par
+    (d) If $E\subset X$ and if $p$ is a limit point of $E$, then there is a sequence $(p_n)$ in $E$ such that $p=\lim_{n\to\infty}p_n$.
+\end{theorem}
+\begin{theorem}
+    Suppose $(s_n)$, $(t_n)$ are complex sequences and $\lim_{n\to\infty}s_n=s$, $\lim_{n\to\infty}t_n=t$. Then\par
+    \[
+    \begin{aligned}
+        (a)&\lim_{n\to\infty}(s_n+t_n)=s+t;\\
+        (b)&\lim_{n\to\infty}(cs_n)=cs,\lim_{n\to\infty}(c+s_n)=c+s\;\;\forall c;\\
+        (c)&\lim_{n\to\infty}(s_nt_n)=st;\\
+        (d)&\lim_{n\to\infty}(1/s_n)=1/s,\;provided\;s_n\neq 0\;and\;s\neq 0.
+    \end{aligned}
+    \]
+\end{theorem}
+\begin{theorem}
+    \leavevmode\par
+    (a) Suppose $\mathbf{x}_n\in\mathbb{R}^k\:(n=1,2,3,...)$ and
+    \[
+    \mathbf{x}_n=(\alpha_{1,n},...,\alpha_{k,n}).
+    \]\par
+    Then $(\mathbf{x}_n)$ converges to $\mathbf{x}=(\alpha_1,...,\alpha_k)$ if and only if
+    \[
+    \lim_{n\to\infty}\;\alpha_{j,n}=\alpha_j\qquad(1\leq j\leq k).
+    \]\par
+    (b) Suppose $(\mathbf{x}_n)$, $(\mathbf{y}_n)$ are sequences in $\mathbb{R}^k$, $(\beta_n)$ is a sequence of real numbers, and $\mathbf{x}_n\to\mathbf{x}$, $\mathbf{y}_n\to\mathbf{y}$, $\beta_n\to\beta$. Then
+    \[
+    \lim_{n\to\infty}\;(\mathbf{x}_n+\mathbf{y}_n)=\mathbf{x}+\mathbf{y},\quad\lim_{n\to\infty}\mathbf{x}_n\cdot\mathbf{y}_n=\mathbf{x}\cdot\mathbf{y},\quad\lim_{n\to\infty}\beta_n\mathbf{x}_n=\beta\mathbf{x}.
+    \]
+\end{theorem}
+
+\section{Subsequences}
+\begin{definition}
+    Given a sequence $(p_n)$, consider a sequence $(n_k)$ of positive integers such that $n_1<n_2<n_3<...$. Then the sequence $(p_{n_i})$ is called a \textit{subsequence} of $(p_n)$. If $(p_{n_i})$ converges, its limit is called the \textit{subsequential limit} of $(p_n)$.
+\end{definition}
+\begin{theorem}
+    \leavevmode\par
+    (a) If $(p_n)$ is a sequence in a compact metric space $X$, then some subsequence of $(p_n)$ converges to a point of $X$.\par
+    (b) Every bounded sequence in $\mathbb{R}^k$ contains a convergent subsequence.
+\end{theorem}
+\begin{theorem}
+    The subsequential limits of a sequence $(p_n)$ in a metric space form a closed subset of $X$.
+\end{theorem}
+
+\section{Cauchy Sequences}
+\begin{definition}
+    A sequence $(p_n)$ in a metric space $X$ is said to be a \textit{Cauchy sequence} if for every $\varepsilon>0$ there is an integer $N$ such that $d(p_n,p_m)<\varepsilon$ if $n>N$ and $m>N$.
+\end{definition}
+\begin{definition}
+    Let $E$ be a nonempty subset of a metric space $X$ and let $S$ be the set of all real numbers of the form $d(p,q)$ with $p\in E$ and $q\in E$. The sup of $S$ is called the \textit{diameter} of $E$.
+\end{definition}
+\begin{theorem}
+    \leavevmode\par
+    (a) If $\overline{E}$ is the closure of a set $E$ in a metric space $X$, then
+    \[
+    diam\overline{E}=diamE.
+    \]\par
+    (b) If $K_n$ is a sequence of compact sets in $X$ such that $K_n\;\supset\;K_{n+1}\;(n=1,2,3,...)$ and if
+    \[
+    \lim_{n\to\infty} diamK_n=0,
+    \]\par
+    \hspace*{1em} then $\bigcap_{n=1}^\infty K_n$ consists of exactly one point.
+\end{theorem}
+\begin{theorem}
+    \leavevmode\par
+    (a) In any metric space $X$, every convergent sequence is a Cauchy sequence.\par
+    (b) If $X$ is a compact metric space and if $(p_n)$ is a Cauchy sequence in X, then $(p_n)$ converges to some point of $X$.\par
+    (c) In $\mathbb{R}^k$, every Cauchy sequence converges.
+\end{theorem}
+\begin{definition}
+    A metric space in which every Cauchy sequence converges is said to be \textit{complete}.
+\end{definition}
+\begin{definition}
+    A sequence $(s_n)$ of real numbers is said to be\par
+    (a) \textit{monotonically increasing} if $s_n\leq s_{n+1}\;(n=1,2,3,...)$;\par
+    (b) \textit{monotonically decreasing} if $s_n\geq s_{n+1}\;(n=1,2,3,...)$.\\
+    The class of monotonic sequences consists of the increasing and decreasing sequences.
+\end{definition}
+\begin{theorem}
+    Suppose $(s_n)$ is monotonic. Then $(s_n)$ converges if and only if it is bounded.
+\end{theorem}
+
+\section{Upper and Lower Limits}
+\begin{definition}
+    Let $(s_n)$ be a sequence of real numbers with the following property: For every real $M$ there is an integer $N$ such that $n\geq N$ implies $s_n\geq M$. We then write
+    \[
+    s_n\to+\infty.
+    \]
+    Similarly, if for every real $M$ there exists an integer $N$ such that $n\geq N$ implies $s_n\leq M$, we write
+    \[
+    s_n\to-\infty.
+    \]
+\end{definition}
+\begin{definition}
+    Let $(s_n)$ be a sequence of real numbers. Let $E$ be the set of numbers $x$ (in the extended real number system) such that $s_{n_k}\to x$ for some subsequence $(s_{n_k})$. This set $E$ contains all subsequential limits.\par
+    Put
+    \[
+    s^*=\sup E,\\
+    s_*=\inf E.
+    \]
+    The numbers $s^*$,$s_*$ are called the \textit{upper} and \textit{lower} limits of $(s_n)$; we use the notation
+    \[
+    \limsup_{n\to\infty} s_n=s^*,\qquad \liminf_{n\to\infty}s_n=s_*.
+    \]
+\end{definition}
+\begin{theorem}
+    Let $(s_n)$ be a sequence of real numbers. Let $E$ and $s^*$ have the same meaning as defined above. Then $s^*$ has the following two properties:\par
+    (a) $s^*\in E$.\par
+    (b) If $x>s^*$, there is an integer $N$ such that $n>N$ implies $s_n<x$.\\
+    Moreover, $s^*$ is the only number with the properties (a) and (b).
+\end{theorem}
+\begin{theorem}
+    If $s_n\leq t_n$ for $n\geq N$, where $N$ is fixed, then
+    \[
+    \begin{aligned}
+        \liminf_{n\to\infty}s_n&\leq \liminf_{n\to\infty}t_n,\\
+        \limsup_{n\to\infty}s_n&\leq \limsup_{n\to\infty}t_n.
+    \end{aligned}
+    \]
+\end{theorem}
+
+\section{Some Special Sequences}
+\begin{theorem}
+    \leavevmode\par
+    (a) If $p>0$, then $\lim_{n\to\infty}1/n^p=0$.\par
+    (b) If $p>0$, then $\lim_{n\to\infty}\sqrt[n]{p}=1$.\par
+    (c) $\lim_{n\to\infty}\sqrt[n]{n}=1$.\par
+    (d) If $p>0$ and $\alpha$ is real, then $\lim_{n\to\infty}n^\alpha/(1+p)^n=0$.\par
+    (e) If $|x|<1$, then $\lim_{n\to\infty}x^n=0$.
+\end{theorem}
+
+\section{Series}
+\begin{definition}
+    Given a sequence $(a_n)$, we use the notation
+    \[
+    \sum_{n=p}^q a_n\qquad (p\leq q)
+    \]
+    to denote the sum $a_p+a_{p+1}+...+a_q$. With $(a_n)$, we associate a sequence $(s_n)$, where
+    \[
+    s_n=\sum_{k=1}^n a_k.
+    \]
+    For $(s_n)$ we also use the symbolic expression
+    \[
+    a_1+a_2+a_3+...
+    \]
+    or, more concisely,
+    \[
+    \sum_{n=1}^\infty a_n.
+    \]
+    The symbol above we call an \textit{infinite series} or just a \textit{series}. The numbers $s_n$ are called the \textit{partial sums} of the series. If $(s_n)$ converges to $s$, we say that the series \textit{converges}, and write
+    \[
+    \sum_{n=1}^\infty a_n=s.
+    \]
+    The number s is called the sum of the series; but it should be clearly understood that $s$ \textit{is the limit of a sequence of sums}, and is not obtained simply by addition.
+\end{definition}
+\begin{theorem}
+    $\sum a_n$ converges if and only if for every $\varepsilon>0$ there is an integer $N$ such that
+    \[
+    |\sum_{k=n}^m a_k|\leq \varepsilon
+    \]
+    if $m\geq n\geq N$.
+\end{theorem}
+\begin{theorem}
+    If $\sum a_n$ converges, then $\lim_{n\to\infty}a_n=0$.
+\end{theorem}
+\begin{theorem}
+    A series of nonnegative terms converges if and only if its partial sums form a bounded sequence.
+\end{theorem}
+\begin{theorem}
+    \leavevmode\par
+    (a) If $|a_n|\leq c_n$ for $n\geq N_0$, where $N_0$ is some fixed integer, and if $\sum c_n$ converges, then $\sum a_n$ converges.\par
+    (b) If $a_n\geq d_n\geq 0$ for $n\geq N_0$ and if $\sum d_n$ diverges, then $\sum a_n$ diverges.
+\end{theorem}
+
+\section{Series of Nonnegative Terms}
+\begin{theorem}
+    If $0\leq x<1$, then
+    \[
+    \sum_{n=0}^\infty x^n=\frac{1}{1-x}.
+    \]
+    If $x\geq1$, the series diverges.
+\end{theorem}
+\begin{theorem}
+    Suppose $a_1\geq a_2\geq a_3\geq ... \geq 0$. Then the series $\sum_{n=1}^\infty a_n$ converges if and only if the series
+    \[
+    \sum_{k=0}^\infty 2^ka_{2^k}=a_1+2a_2+4a_4+8a_8+...
+    \]
+    converges.
+\end{theorem}
+\begin{theorem}
+    $\sum \frac{1}{n^p}$ converges if $p>1$ and diverges if $p\leq1$.
+\end{theorem}
+\begin{theorem}
+    If $p>1$,
+    \[
+    \sum_{n=2}^\infty \frac{1}{n(logn)^p}
+    \]
+    converges; if $p \leq1$, the series diverges.
+\end{theorem}
+
+\section{The Number e}
+\begin{definition}
+    $e=\sum_{n=0}^\infty \frac{1}{n!}$.
+\end{definition}
+\begin{theorem}
+    $\lim_{n\to\infty}(1+\frac{1}{n})^n=e$.
+\end{theorem}
+\begin{theorem}
+    $e$ is irrational.
+\end{theorem}
+
+\section{The Root and Ratio Tests}
+\begin{theorem}
+    Given $\sum a_n$, put $\alpha=\limsup_{n\to\infty}\sqrt[n]{|a_n|}$.\par
+    (a) If $\alpha<1$, $\sum a_n$ converges;\par
+    (b) If $\alpha<1$, $\sum a_n$ diverges;\par
+    (c) If $\alpha=1$, the test gives no information.
+\end{theorem}
+\begin{theorem}
+    The series $\sum a_n$\par
+    (a) converges if $\limsup_{n\to\infty}|a_{n+1}/a_n|<1$,\par
+    (b) diverges if $|a_{n+1}/a_n|\geq1$ for all $n\geq n_0$, where $n_0$ is some fixed integer.
+\end{theorem}
+\begin{theorem}
+    For any sequence $(c_n)$ of positive numbers,
+    \[
+    \begin{aligned}
+        \liminf_{n\to\infty}\frac{c_{n+1}}{c_n} &\leq \liminf_{n\to\infty} \sqrt[n]{c_n},\\
+        \limsup_{n\to\infty}\sqrt[n]{c_n} &\leq \limsup_{n\to\infty} \frac{c_{n+1}}{c_n}.
+    \end{aligned}
+    \]
+\end{theorem}
+
+\section{Power Series}
+\begin{definition}
+    Given a sequence $(c_n)$ of complex numbers, the series
+    \[
+    \sum_{n=0}^\infty c_n z^n
+    \]
+    is called a \textit{power series}. The numbers $c_n$ are called the \textit{coefficients} of the series; z is a complex number.
+\end{definition}
+\begin{theorem}
+    Given the power series $\sum c_n z^n$, put
+    \[
+    \alpha=\limsup_{n\to\infty} \sqrt[n]{|c_n|}, \qquad R=\frac{1}{\alpha}.
+    \]
+    Then $\sum c_n z^n$ converges if $|z|<R$ and diverges if $|z|>R$.
+\end{theorem}
+
+\section{Summation by Parts}
+\begin{theorem}
+    Given two sequences $(a_n)$ and $(b_n)$, put
+    \[
+    A_n=\sum_{k=0}^n a_k
+    \]
+    if $n\geq0$; put $A_{-1}=0$. Then, if $0\leq p\leq q$, we have
+    \[
+    \sum_{n=p}^{q} a_nb_n = \sum_{n=p}^{q-1} A_n(b_n-b_{n-1})+A_qb_q-A_{p-1}b_p.
+    \]
+\end{theorem}
+\begin{theorem}
+    Suppose\par
+    (a) the partial sums $A_n$ of $\sum a_n$ form a bounded sequence;\par
+    (b) $b_0\geq b_1\geq b_2\geq...$;\par
+    (c) $\lim_{n\to\infty}b_n=0$.\\
+    Then $\sum a_nb_n$ converges.
+\end{theorem}
+\begin{theorem}
+    Suppose\par
+    (a) $|c_1|\geq|c_2|\geq|c_3|\geq...$;\par
+    (b) $c_{2m-1}\geq 0, c_{2m}\leq0 \qquad (m=1,2,3,...)$;\par
+    (c) $\lim_{n\to\infty}c_n=0$.\\
+    Then $\sum c_n$ converges.
+\end{theorem}
+\begin{theorem}
+    Suppose the radius of convergence of $\sum c_nz^n$ is 1, and suppose $c_0\geq c_1\geq c_2\geq...$, $\lim_{n\to\infty} c_n=0$. Then $\sum c_nz^n$ converges at every point on the circle $|z|=1$, except possibly at $z=1$.
+\end{theorem}
+
+\section{Absolute Convergence}
+\begin{theorem}
+    If $\sum a_n$ converges absolutely, then $\sum a_n$ converges.
+\end{theorem}
+
+\section{Addition and Multiplication of Series}
+\begin{theorem}
+    If $\sum a_n = A$ and $\sum b_n=B$, then $\sum(a_n+b_n)=A+B$ and $\sum(ca_n)=cA$ for any fixed c.
+\end{theorem}
+\begin{definition}
+    Given $\sum a_n$ and $\sum b_n$, we put
+    \[
+    c_n=\sum_{k=0}^n a_kb_{n-k}\qquad (n=0,1,2,...)
+    \]
+    and call $\sum c_n$ the \textit{product} of the two given series.
+\end{definition}
+\begin{theorem}
+    Suppose\par
+    (a) $\sum_{n=0}^\infty a_n$ converges absolutely,\par
+    (b) $\sum_{n=0}^\infty a_n=A$,\par
+    (c) $\sum_{n=0}^\infty b_n=B$,\par
+    (d) $c_n=\sum_{k=0}^na_kb_{n-k}\quad(n=0,1,2,...)$.\\
+    Then
+    \[
+    \sum_{n=0}^\infty c_n=AB.
+    \]
+    That is, the product of two convergent series converges, and to the right value, if at least one of the two series converges absolutely.
+\end{theorem}
+\begin{theorem}
+    If the series $\sum a_n$, $\sum b_n$, $\sum c_n$ converges to $A,\;B,\;C$, and $c_n=a_0b_n+...+a_nb_0$, then $C=AB$.
+\end{theorem}
+
+\section{Rearrangements}
+\begin{definition}
+    Let $(k_n)$, $n=1,2,3,...$ be a sequence in which every positive integer appears once and only once (that is, $(k_n)$ is a 1-1 function from $\mathbb{N}$ onto $\mathbb{N}$). Putting
+    \[
+    a_n'=a_{k_n}\qquad (n=1,2,3,...),
+    \]
+    we say that $\sum a_n'$ is a \textit{rearrangement} of $\sum a_n$.
+\end{definition}
+\begin{theorem}
+    Let $\sum a_n$ be a series of real numbers which converges, but not absolutely. Suppose
+    \[
+    -\infty\leq\alpha\leq\beta\leq+\infty.
+    \]
+    Then there exists a rearrangement $\sum a_n'$ with the partial sums $s_n'$ such that
+    \[
+    \liminf_{n\to\infty} s_n'=\alpha,\qquad\limsup_{n\to\infty} s_n'=\beta.
+    \]
+\end{theorem}
+\begin{theorem}
+    If $\sum a_n$ is a series of complex numbers which converges absolutely, then every rearrangement of $\sum a_n$ converges, and they all converge to the same sum.
+\end{theorem}
+
+\section{Exercise Notes}
+\begin{theorem}
+    If $(s_n)$ is a complex sequence, define its arithmetic means $\sigma_n$ by
+    \[
+    \sigma_n = \frac{s_0+s_1+...+s_n}{n+1}\qquad (n=0,1,2,...). 
+    \]
+    Assume $M<\infty$, $|na_n|\leq M$ for all $n$, and $\lim \sigma_n=\sigma$. Then $\lim_{n\to\infty}s_n=\sigma$.
+\end{theorem}
+\begin{theorem}
+    If $(E_n)$ is a sequence of closed, nonempty, and bounded sets in a \textit{complete} metric space $X$, if $E_n\supset E_{n+1}$, and if
+    \[
+    \lim_{n\to\infty} diam\;E_n=0,
+    \]
+    then $\bigcap_{n=1}^\infty E_n$ consists exactly one point.
+\end{theorem}
+\begin{theorem}
+    Completion of metric space $X$.\par
+    Step1. Take all Cauchy sequences in $X$ and sort them into equivalence classes if they have the same limits.\par
+    Step2. Let $X^*$ be the set of all equivalence classes and define 
+    \[
+    \Delta(P,Q)=\lim_{n\to\infty}d(p_n, q_n)
+    \]
+    as the distance function in $X^*$.\par
+    Step3. Every $x\in X$ corresponds to $P_x=(x,x,x,...)$ in $X^*$, in which way we put our original $X$ into $X^*$.\par
+    Then $X^*$ is complete.
+\end{theorem}
+\end{document}
