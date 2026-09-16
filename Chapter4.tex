@@ -1,0 +1,273 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{setspace}
+\theoremstyle{definition}
+\newtheorem{definition}{Def}
+\newtheorem{theorem}[definition]{Thm}
+\newtheorem{corollary}[definition]{Cor}
+\newtheorem{proposition}[definition]{Prop}
+\newtheorem{remarks}[definition]{Rmk}
+\newtheorem{notation}[definition]{Notation}
+\onehalfspacing
+
+\title{Chapter3}
+\author{Ricky Dai}
+\date{September 2026}
+
+\begin{document}
+
+\maketitle
+\section{Limits of Functions}
+\begin{definition}
+    Let $X$ and $Y$ be metric spaces; suppose $E\subset X$, $f$ maps $E$ into $Y$, and $p$ is a limit point of $E$. We write $f(x)\to q$ as $x\to p$, or
+    \[
+    \lim_{x\to p}f(x)=q
+    \]
+    if there is a point $q\in Y$ with the following property: For every $\varepsilon>0$ there exists a $\delta>0$ such that
+    \[
+    d_Y(f(x),q)<\varepsilon
+    \]
+    for all points $x\in E$ for which 
+    \[
+    0<d_X(x,p)<\delta.
+    \]
+    The symbols $d_X$ and $d_Y$ refer to the distances in $X$ and $Y$, respectively.
+\end{definition}
+\begin{theorem}
+    Let $X,Y,E,f,$ and $p$ be as in the definition above. Then
+    \[
+    \lim_{x\to p}f(x)=q
+    \]
+    if and only if
+    \[
+    \lim_{n\to\infty} f(p_n)=q
+    \]
+    for every sequence $(p_n)$ in $E$ such that 
+    \[
+    p_n\neq p,\qquad \lim_{n\to\infty}p_n=p.
+    \]
+\end{theorem}
+\begin{corollary}
+    If $f$ has a limit at $p$, this limit is unique.
+\end{corollary}
+\begin{definition}
+    Suppose we have two complex functions, $f$ and $g$, both defined on $E$. By $f+g$ we mean the function which assigns to each point $x$ of $E$ the number $f(x)+g(x)$. Similarly we define the difference $f-g$, the product $fg$, and the quotient $f/g$ of two functions, with the understanding that the quotient is defined only at those points $x$ of $E$ at which $g(x)\neq 0$. If $f$ assigns to each point $x$ of $E$ the same number $c$, then $f$ is said to be a constant function, or simply a constant, and we write $f=c$. If $f$ and $g$ are real functions, and if $f(x)\geq g(x)$ for every $x\in E$, we shall sometimes write $f\geq g$ for brevity.\par
+    Similarly, if $\mathbf{f}$ and $\mathbf{g}$ map $E$ into $\mathbb{R}^k$, we define $\mathbf{f}+\mathbf{g}$ and $\mathbf{f}\cdot\mathbf{g}$ by
+    \[
+    (\mathbf{f}+\mathbf{g})(x)=\mathbf{f}(x)+\mathbf{g}(x), \qquad (\mathbf{f}\cdot\mathbf{g})(x)=\mathbf{f}(x)\cdot\mathbf{g}(x);
+    \]
+    and if $\lambda$ is a real number, $(\lambda\mathbf{f})(x)=\lambda\mathbf{f}(x)$.
+\end{definition}
+\begin{theorem}
+    Suppose $E\subset X$, a metric space, $p$ is a limit point $E$, $f$ and $g$ are complex functions on $E$, and
+    \[
+    \lim_{x\to p} f(x)=A,\qquad \lim_{x\to p}g(x)=B.
+    \]
+    Then\par
+    (a) $\lim_{x\to p}(f+g)(x)=A+B$;\par
+    (b) $\lim_{x\to p}(fg)(x)=AB$;\par
+    (c) $\lim_{x\to p}(\frac{f}{g})(x)=\frac{A}{B}$, if $B\neq0$.
+\end{theorem}
+\begin{remarks}
+    If $\mathbf{f}$ and $\mathbf{g}$ map $E$ into $\mathbb{R}^k$, then (a) remains true, and (b) becomes\par
+    (b') $\lim_{x\to p} (\mathbf{f}\cdot\mathbf{g})(x)=\mathbf{A}\cdot\mathbf{B}$.
+\end{remarks}
+
+\section{Continuous Functions}
+\begin{definition}
+    Suppose $X$ and $Y$ are metric spaces, $E\subset X$, $p\in E$, and $f$ maps $E$ into $Y$. Then $f$ is said to be \textit{continuous at} $p$ if for every $\varepsilon>0$ there exists a $\delta>0$ such that
+    \[
+    d_Y(f(x), f(p))<\varepsilon
+    \]
+    for all points $x\in E$ for which $d_X(x,p)<\delta$.\par
+    If $f$ is continuous at every point of $E$, then $f$ is said to be \textit{continuous on} $E$.
+\end{definition}
+\begin{theorem}
+    In the situation given above, assume also that $p$ is a limit point of $E$. Then $f$ is continuous at $p$ if and only if $\lim_{x\to p}f(x)=f(p)$
+\end{theorem}
+\begin{theorem}
+    Suppose $X, Y, Z$ are metric spaces, $E\subset X$, $f$ maps $E$ into $Y$, $g$ maps the range of $f$, $f(E)$, into $Z$, and $h$ is the mapping of $E$ into $Z$ defined by
+    \[
+    h(x)=g(f(x))\qquad (x\in E).
+    \]
+    If $f$ is continuous at a point $p\in E$ and if $g$ is continuous at the point $f(p)$, then $h$ is continuous at $p$.\par
+    This function $h$ is called the \textit{composition} or the \textit{composite} of $f$ and $g$. The notation
+    \[
+    h=g\circ f
+    \]
+    is frequently used in this context.
+\end{theorem}
+\begin{theorem}
+    A mapping $f$ of a metric space $X$ into a metric space $Y$ is continuous on $X$ if and only if $f^{-1}(V)$ is open in $X$ for every open set $V$ in $Y$.
+\end{theorem}
+\begin{corollary}
+    A mapping $f$ of a metric space $X$ into a metric space $Y$ is continuous if and only if $f^{-1}(C)$ is closed in $X$ for every closed set $C$ in $Y$.
+\end{corollary}
+\begin{theorem}
+    Let $f$ and $g$ be complex continuous functions on a metric space $X$. Then $f+g$, $fg$, and $f/g$ are continuous on $X$.
+\end{theorem}
+\begin{theorem}
+    \leavevmode\par
+    (a) Let $f_1, ..., f_k$ be real functions on a metric space $X$, and let $\mathbf{f}$ be the mapping of $X$ into $\mathbb{R}^k$ defined by
+    \[
+    \mathbf{f}(x)=(f_1(x),...,f_k(x))\qquad (x\in X);
+    \]
+    \hspace*{3em}then $\mathbf{f}$ is continuous if and only if each of the functions $f_1,...,f_k$ is continuous.\par
+    (b) If $\mathbf{f}$ and $\mathbf{g}$ are continuous mappings of $X$ into $\mathbb{R}^k$, then $\mathbf{f}+\mathbf{g}$ and $\mathbf{f}\cdot\mathbf{g}$ are continuous on $X$.\par
+    The functions $f_1,...,f_k$ are called the \textit{components} of $\mathbf{f}$. Note that $\mathbf{f}+\mathbf{g}$ is a mapping into $\mathbb{R}^k$, whereas $\mathbf{f}\cdot\mathbf{g}$ is a \textit{real} function on $X$.
+\end{theorem}
+
+\section{Continuity and Compactness}
+\begin{definition}
+    A mapping $\mathbf{f}$ of a set $E$ into $\mathbb{R}^k$ is said to be \textit{bounded} if there is a real number $M$ such that $|\mathbf{f}(x)|\leq M$ for all $x\in E$.
+\end{definition}
+\begin{theorem}
+    Suppose $f$ is a continuous mapping of a compact metric space $X$ into a metric space $Y$. Then $f(X)$ is compact.
+\end{theorem}
+\begin{theorem}
+    If $f$ is a continuous mapping of a compact metric space $X$ into $\mathbb{R}^k$, then $\mathbf{f}(x)$ is closed and bounded. Thus, $\mathbf{f}$ is bounded.
+\end{theorem}
+\begin{theorem}
+    Suppose $f$ is a continuous real function on a compact metric space $X$, and
+    \[
+    M=\sup_{p\in X}f(p), \qquad m=\inf_{p\in X}f(p).
+    \]
+    Then there exist points $p,q\in X$ such that $f(p)=M$ and $f(q)=m$. 
+\end{theorem}
+\begin{theorem}
+    Suppose $f$ is a continuous 1-1 mapping of a compact metric space $X$ onto a metric space $Y$. Then the inverse mapping $f^{-1}$ defined on $Y$ by
+    \[
+    f^{-1}(f(x))=x \qquad (x\in X)
+    \]
+    is a continuous mapping of $Y$ onto $X$.
+\end{theorem}
+\begin{definition}
+    Let $f$ be a mapping of a metric space $X$ into a metric space $Y$. We say that $f$ is \textit{uniformly continuous} on $X$ if for every $\varepsilon>0$ there exists $\delta>0$ such that
+    \[
+    d_Y(f(p), f(q))<\varepsilon
+    \]
+    for all $p$ and $q$ in $X$ for which $d_X(p,q)<\delta$.
+\end{definition}
+\begin{theorem}
+    Let $f$ be a continuous mapping of a compact metric space $X$ into a metric space $Y$. Then $f$ is uniformly continuous on $X$.
+\end{theorem}
+\begin{theorem}
+    Let $E$ be a noncompact set in $\mathbb{R}^1$. Then\par
+    (a) there exists a continuous function on $E$ which is not bounded.\par
+    (b) there exists a continuous and bounded function on $E$ which has no maximum.\\
+    If, in addition, $E$ is bounded, then\par
+    (c) there exists a continuous function on $E$ which is not uniformly continuous.
+\end{theorem}
+
+\section{Continuity and Connectedness}
+\begin{theorem}
+    If $f$ is a continuous mapping of a metric space $X$ into a metric space $Y$, and if $E$ is a connected subset of $X$, then $f(E)$ is connected.
+\end{theorem}
+\begin{theorem}
+    Let $f$ be a continuous real function on the interval $[a,b]$. If $f(a)<f(b)$ and if $c$ is a number such that $f(a)<c<f(b)$, then there exists a point $x\in (a,b)$ such that $f(x)=c$.
+\end{theorem}
+
+\section{Discontinuities}
+\begin{definition}
+    Let $f$ be defined on $(a,b)$. Consider any point $x$ such that $a\leq x<b$. We write
+    \[
+    f(x+)=q
+    \]
+    if $f(t_n)\to q$ as $n\to\infty$, for all sequences $(t_n)$ in $(x, b)$ such that $t_n\to x$. To obtain the definition of $f(x-)$, for $a<x\leq b$, we restrict ourselves to sequences $(t_n)$ in $(a,x)$.\par
+    It is clear that for any point $x$ of $(a,b)$, $\lim_{t\to x}f(t)$ exists if and only if
+    \[
+    f(x+)=f(x-)=\lim_{t\to x}f(t).
+    \]
+\end{definition}
+\begin{definition}
+    Let $f$ be defined on $(a,b)$. If $f$ is discontinuous at a point $x$, and if $f(x+)$ and $f(x-)$ exist, then $f$ is said to have a discontinuity of the \textit{first kind}, or a \textit{simple discontinuity}, at $x$. Otherwise the discontinuity is said to be of the \textit{second kind}.
+\end{definition}
+
+\section{Monotonic Functions}
+\begin{definition}
+    Let $f$ be real on $(a, b)$. Then $f$ is said to be \textit{monotonically increasing} on $(a, b)$ if $a<x<y<b$ implies $f(x)\leq f(y)$. If the last inequality is reversed, we obtain the definition of a \textit{monotonically decreasing} function.
+\end{definition}
+\begin{theorem}
+    Let $f$ be monotonically increasing on $(a,b)$. Then $f(x+)$ and $f(x-)$ exist at every point of $x$ of $(a,b)$. More precisely,
+    \[
+    \sup_{a<t<x}f(t)=f(x-)\leq f(x) \leq f(x+)=\inf_{x<t<b}f(t).
+    \]
+\end{theorem}
+\begin{remarks}
+    Given any countable subset $E$ of $(a,b)$, which may even be dense, we can construct a function $f$, monotonic on $(a,b)$, discontinuous at every point of $E$, and at no other point of $(a,b)$.
+\end{remarks}
+\begin{definition}
+    Given a function $f$ on $(a,b)$,\par
+    (a) If $f(x-)=f(x)$ at all points of $(a,b)$, then $f$ is \textit{continuous from the left}.
+    (b) If $f(x+)=f(x)$ at all points of $(a,b)$, then $f$ is \textit{continuous from the right}.
+\end{definition}
+
+\section{Infinite Limits and Limits at Infinity}
+\begin{definition}
+    For any real $c$, the set of real numbers $x$ such that $x>c$ is called a neighborhood of $+\infty$ and is written $(c,+\infty)$. Similarly, the set $(-\infty,c)$ is a neighborhood of $-\infty$.
+\end{definition}
+\begin{definition}
+    Let $f$ be a real function defined on $E\subset \mathbb{R}$. We say that
+    \[
+    f(t)\to A\;\;as \;\;t\to x,
+    \]
+    where $A$ and $x$ are in the extended real number system, if for every neighborhood $U$ of $A$ there is a neighborhood $V$ of $x$ such that $V\bigcapE$ is not empty, and such that $f(t)\in U$ for all $t\in V\bigcap E$, $t\neq x$.
+\end{definition}
+\begin{theorem}
+    Let $f$ and $g$ be defined on $E\subset \mathbb{R}$. Suppose
+    \[
+    f(t)\to A,\quad g(t)\to B\quad as\;\;t\to x
+    \]
+    Then\par
+    (a) $f(t)\to A'$ implies $A'=A$,\par
+    (b) $(f+g)(t)\to A+B$,\par
+    (c) $(fg)(t)\to AB$,\par
+    (d) $(f/g)(t)\to A/B$,\\
+    provided the right members of (b), (c) and (d) are defined.
+\end{theorem}
+
+\section{Exercise Notes}
+\begin{theorem}
+    A continuous function is determined by its values on a dense subset of its domain.
+\end{theorem}
+\begin{definition}
+    If $f$ is a real continuous function defined on a closed set $E\subset \mathbb{R}^1$, and there exists a continuous real function g on $\mathbb{R}^1$ such that $g(x)=f(x)$ for all $x\in E$, then $g$ is called \textit{continuous extensions} of $f$ from $E$ to $\mathbb{R}^1$.
+\end{definition}
+\begin{definition}
+    If $f$ is a real continuous function defined on $X$, and there exists a continuous function g on $E\subset X$ such that $g(x)=f(x)$ for all $x\in E$, then $g$ is called the \textit{restriction} of $f$.
+\end{definition}
+\begin{definition}
+    If $E$ is a nonempty subset of a metric space $X$, define the distance from $x\in X$ to $E$ by
+    \[
+    \rho_E(x)=\inf_{z\in E}d(x,z)
+    \]
+\end{definition}
+\begin{theorem}
+    \leavevmode\\
+    \[
+    |\rho_E(x)-\rho_E(y)|\leq d(x,y)
+    \]
+    for all $x\in X$, $y \in X$.
+\end{theorem}
+\begin{theorem}
+    Suppose $K$ and $F$ are disjoint sets in a metric space $X$, $K$ is compact, $F$ is closed. Then there exists $\delta>0$ such that $d(p,q)>\delta$ if $p\in K$, $q\in F$.
+\end{theorem}
+\begin{definition}
+    The property that pairs of disjoint closed sets in metric spaces can be covered by pairs of disjoint open sets is called \textit{normality}.
+\end{definition}
+\begin{definition}
+    A real-valued function $f$ defined in $(a,b)$ is said to be \textit{convex} if
+    \[
+    f(\lambda x+(1-\lambda)y)\leq \lambda f(x)+(1-\lambda)f(y)
+    \]
+    whenever $a<x<b$, $a<y<b$, and $0<\lambda<1$.
+\end{definition}
+\begin{theorem}
+    Every convex function is continuous.
+\end{theorem}
+\begin{theorem}
+    Let $\alpha$ be an irrational real number. Let $C_1$ be the set of all integers, let $C_2$ be the set of all $n\alpha$ with $n\in C_1$. Then $C_1+C_2$ is a countable dense subset of $\mathbb{R}^1$.
+\end{theorem}
+\end{document}
