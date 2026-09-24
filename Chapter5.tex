@@ -1,0 +1,195 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{setspace}
+\theoremstyle{definition}
+\newtheorem{definition}{Def}
+\newtheorem{theorem}[definition]{Thm}
+\newtheorem{corollary}[definition]{Cor}
+\newtheorem{proposition}[definition]{Prop}
+\newtheorem{remarks}[definition]{Rmk}
+\newtheorem{notation}[definition]{Notation}
+\onehalfspacing
+
+\title{Chapter5}
+\author{Ricky Dai}
+\date{September 2026}
+
+\begin{document}
+
+\maketitle
+\section{The Derivative of a Real Function}
+\begin{definition}
+    Let $f$ be defined (and real-valued) on $[a, b]$. For any $x\in [a,b]$, form the quotient
+    \[
+    \Phi(t)=\frac{f(t)-f(x)}{t-x} \qquad (a<t<b, t\neq x),
+    \]
+    and define
+    \[
+    f'(x)=\lim_{t\to x} \Phi(t),
+    \]
+    provided this limit exists in accordance with the definition in the last chapter.\par
+    We thus associate with the function $f$ a function $f'$ whose domain is the set of points $x$ at which the limit above exists; $f'$ is called the \textit{derivative} of $f$.\par
+    If $f'$ is defined at a point $x$, we say that $f$ is \textit{differentiable} at $x$. If $f'$ is defined at every point of a set $E\subset [a,b]$, we say that $f$ is differentiable on $E$.
+\end{definition}
+\begin{theorem}
+    Let $f$ be defined on $[a, b]$. If $f$ is differentiable at a point $x\in [a,b]$, then $f$ is continuous at $x$.
+\end{theorem}
+\begin{theorem}
+    Suppose $f$ and $g$ are defined on $[a,b]$ and are differentiable at a point $x\in [a,b]$. Then $f+g$, $fg$, and $f/g$ are differentiable at $x$, and\par
+    (a) $(f+g)'(x)=f'(x)+g'(x)$;\par
+    (b) $(fg)'(x)=f'(x)g(x)+f(x)g'(x)$;\par
+    (c) $(\frac{f}{g})'(x)=\frac{g(x)f'(x)-g'(x)f(x)}{g^2(x)}$.\\
+    In (c), we assume of course that $g(x)\neq 0$.
+\end{theorem}
+\begin{theorem}
+    Suppose $f$ is continuous on $[a,b]$, $f'(x)$ exists at some point $x\in [a,b]$, $g$ is defined on an interval $I$ which contains the range of $f$, and $g$ is differentiable at the point $f(x)$. If
+    \[
+    h(t)=g(f(t))\qquad (a\leq t\leq b),
+    \]
+    then $h$ is differentiable at $x$, and
+    \[
+    h'(x)=g'(f(x))f'(x).
+    \]
+\end{theorem}
+
+\section{Mean Value Theorems}
+\begin{definition}
+    Let $f$ be a real function defined on a metric space $X$. We say that $f$ has a \textit{local maximum} at a point $p\in X$ if there exists $\delta>0$ such that $f(q)\leq f(p)$ for all $q\in X$ with $d(p, q)<\delta$. Local minima are defined likewise.
+\end{definition}
+\begin{theorem}
+    Let $f$ be defined on $[a,b]$; if $f$ has a local maximum at a point $x\in (a,b)$ and if $f'(x)$ exists, then $f'(x)=0$.\par
+    The analogous statement for local minima is of course true.
+\end{theorem}
+\begin{theorem}
+    (\textit{Generalized Mean Value Theorem}) If $f$ and $g$ are continuous real functions on $[a, b]$ which are differentiable on $(a,b)$, then there is a point $x\in (a, b)$ at which
+    \[
+    [f(b)-f(a)]g'(x)=[g(b)-g(a)]f'(x).
+    \]
+    Note that differentiability is not required at end points.
+\end{theorem}
+\begin{theorem}
+    (\textit{The Mean Value Theorem}) If $f$ is a real continuous function on $[a, b]$ which is differentiable on $(a, b)$, then there is a point $x\in (a, b)$ at which
+    \[
+    f(b)-f(a)=(b-a)f'(x).
+    \]
+\end{theorem}
+\begin{theorem}
+    Suppose $f$ is differentiable on $(a, b)$.\par
+    (a) If $f'(x)\geq 0$ for all $x\in (a, b)$, then $f$ is monotonically increasing.\par
+    (b) If $f'(x)=0$ for all $x\in (a, b)$, then $f$ is constant.\par
+    (c) If $f'(x) \leq 0$ for all $x\in (a, b)$, then $f$ is monotonically decreasing.
+\end{theorem}
+
+\section{The Continuity of Derivatives}
+\begin{theorem}
+    Suppose $f$ is a real differentiable function on $[a,b]$ and suppose $f'(a)<\lambda <f'(b)$. Then there is a point $x\in (a, b)$ such that $f'(x)=\lambda$.\par
+    A similar result holds of course if $f'(a)>f'(b)$.
+\end{theorem}
+\begin{corollary}
+    If $f$ is differentiable on $[a, b]$, then $f'$ cannot have any simple discontinuities on $[a, b]$.\par
+    But $f'$ may very well have discontinuities of the second kind.
+\end{corollary}
+
+\section{L'hospital's Rule}
+\begin{theorem}
+    Suppose $f$ and $g$ are real and differentiable on $(a, b)$, and $g'(x)\neq 0$ for all $x\in (a, b)$, where $-\infty\leq a<b\leq +\infty$. Suppose
+    \[
+    \frac{f'(x)}{g'(x)}\to A \; as\; x\to a.
+    \]
+    If 
+    \[
+    f(x)\to 0\; and \;g(x)\to0 \; as\; x\to a,
+    \]
+    or if
+    \[
+    g(x)\to+\infty\; as \; x\to a,
+    \]
+    then
+    \[
+    \frac{f(x)}{g(x)}\to A\; as \; x\to A.
+    \]
+\end{theorem}
+
+\section{Derivatives of Higher Order}
+\begin{definition}
+    If $f$ has a derivative $f'$ on an interval, and if $f'$ is itself differentiable, we denote the derivative of $f'$ by $f''$ and call $f''$ the second derivative of $f$.\\
+    Continuing in this manner, we obtain functions
+    \[
+    f,f',f'',f^{(3)},...,f^{(n)},
+    \]
+    each of which is the derivative of the preceding one. $f^{(n)}$ is called the nth derivative of $f$, or the derivative of order $n$ of $f$.
+\end{definition}
+
+\section{Taylor's Theorem}
+\begin{theorem}
+    Suppose $f$ is a real function on $[a, b]$, $n$ is a positive integer, $f^{(n-1)}$ is continuous on $[a, b]$, $f^{(n)}(t)$ exists for every $t\in (a, b)$. Let $\alpha, \beta$ be distinct points of $[a, b]$, and define
+    \[
+    P(t)=\sum_{k=0}^{n-1} \frac{f^{(k)}(\alpha)}{k!}(t-\alpha)^k.
+    \]
+    Then there exists a point $x$ between $\alpha$ and $\beta$ such that
+    \[
+    f(\beta)=P(\beta)+\frac{f^{(n)}(x)}{n!}(\beta-\alpha)^n.
+    \]
+\end{theorem}
+
+\section{Differentiation of Vector-Valued Functions}
+\begin{theorem}
+    Suppose $\mathbf{f}$ is a continuous mapping of $[a, b]$ into $\mathbb{R}^k$ and $\mathbf{f}$ is differentiable on $(a, b)$. Then there exists $x\in (a, b)$ such that
+    \[
+    |\mathbf{f}(b)-\mathbf{f}(a)| \leq (b-a)|\mathbf{f}'(x)|.
+    \]
+\end{theorem}
+
+\section{Exercise Notes}
+\begin{theorem}
+    Suppose $g$ is the inverse function of $f$ and is differentiable, then
+    \[
+    g'(f(x)) = \frac{1}{f'(x)}
+    \]
+\end{theorem}
+\begin{theorem}
+    Suppose $f'(x), g'(x)$ exist, $g'(x)\neq0$, and $f(x)=g(x)=0$. Then
+    \[
+    \lim_{t\to x} \frac{f(t)}{g(t)} = \frac{f'(x)}{g'(x)}.
+    \]
+    (This also holds for complex functions.)
+\end{theorem}
+\begin{theorem}
+    Suppose $f'$ is continuous on $[a,b]$ and $\varepsilon>0$. Prove that there exists $\delta>0$ such that
+    \[
+    |\frac{f(t)-f(x)}{t-x}-f'(x)|<\varepsilon
+    \]
+    whenever $0<|t-x|<\delta$, $a\leq x\leq b$, $a\leq t\leq b$. This holds for vector-valued functions too.
+\end{theorem}
+\begin{theorem}
+    Suppose $a\in \mathbb{R}^1$, $f$ is a twice-differentiable real function on $(a, \infty)$, and $M_0$, $M_1$, $M_2$ are the least upper bounds of $|f(x)|$, $|f'(x)|$, $|f''(x)|$, respectively, on $(a, \infty)$. Prove that
+    \[
+    M_1^2\leq 4M_0M_2.
+    \]
+\end{theorem}
+\begin{remarks}
+    The theorem above is true for vector-valued functions.
+\end{remarks}
+\begin{theorem}
+    Suppose $f$ is defined in $(-1, 1)$ and $f'(0)$ exists. Suppose $-1<\alpha_n<\beta_n<1$, $\alpha_n\to0$, and $\beta_n\to0$ as $n\to\infty$. Define the difference quotients
+    \[
+    D_n=\frac{f(\beta_n)-f(\alpha_n)}{\beta_n-\alpha_n}.
+    \]
+    Then\par
+    (a) If $\alpha_n<0<\beta_n$, then $\lim D_n=f'(0)$.\par
+    (b) If $0<\alpha_n<\beta_n$ and $(\beta_n/(\beta_n-\alpha_n))_{n=1}^\infty$ is bounded, then $\lim D_n=f'(0)$.\par
+    (c) If $f'$ is continuous in $(-1,1)$, then $\lim D_n=f'(0)$.
+\end{theorem}
+\begin{theorem}
+    For vector-valued function $f:[a,b]\to\mathbb{R}^m$ which $f^{(n)}$ exists on $(a,b)$. For $\alpha$,$\beta\in [a,b]$, define
+    \[
+    M_n = \sup_{\xi\;between\;\alpha,\beta}||f^{(n)}(\xi)||.
+    \]
+    Then
+    \[
+    ||f(\beta)-\sum_{k=0}^{n-1}\frac{f^{(k)}(\alpha)}{k!}(\beta-\alpha)^k||\leq \frac{M_n}{n!}|\beta-\alpha|^n.
+    \]
+\end{theorem}
+\end{document}
